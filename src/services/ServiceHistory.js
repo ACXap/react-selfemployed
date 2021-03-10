@@ -1,13 +1,13 @@
-import { convertAddressInfoToString } from "./Converters/ConverterAddress";
+import { convertInnInfoToString } from "./Converters/ConverterInn";
 import { createPlainTextFile } from "./WorkFiles/CreateFiles";
 
 export default class ServiceHistory {
-    repositoryOrponing;
+    repositoryCheck;
     onUpdateHistory = () => { console.warn("no listener onUpdateHistory") };
 
-    constructor(repositoryOrponing) {
-        this.repositoryOrponing = repositoryOrponing;
-        this.repositoryOrponing.onAddTask = (task) => this.addTask(task);
+    constructor(repositoryCheck) {
+        this.repositoryCheck = repositoryCheck;
+        this.repositoryCheck.onAddTask = (task) => this.addTask(task);
     }
 
     addTask(task) {
@@ -31,20 +31,19 @@ export default class ServiceHistory {
     }
 
     async downloadTask(taskId) {
-
-        const data = await this.repositoryOrponing.getResult(taskId);
-        const list = convertAddressInfoToString(data);
+        const data = await this.repositoryCheck.getResult(taskId);
+        const list = convertInnInfoToString(data);
         const dataFile = createPlainTextFile(list);
 
         return dataFile;
     }
 
     getHistory() {
-        return JSON.parse(window.localStorage.getItem("history")) ?? [];
+        return JSON.parse(window.localStorage.getItem("historyCheckInn")) ?? [];
     }
 
     setHistory(list) {
-        window.localStorage.setItem("history", JSON.stringify(list.map((h, index) => {
+        window.localStorage.setItem("historyCheckInn", JSON.stringify(list.map((h, index) => {
             h.id = index + 1;
             return h;
         })));
@@ -59,7 +58,7 @@ export default class ServiceHistory {
     async updateStatusTask(taskId) {
         this.updateTask(taskId, { status: "START", message: "", dateStatus: new Date() });
         try {
-            const status = await this.repositoryOrponing.getStatus(taskId);
+            const status = await this.repositoryCheck.getStatus(taskId);
             this.updateTask(taskId, status);
         } catch (e) {
             this.updateTask(taskId, { status: "ERROR", message: e.message, dateStatus: new Date() });

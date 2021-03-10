@@ -1,4 +1,4 @@
-export default class RepositoryOrponing {
+export default class RepositoryCheck {
     onAddTask = () => { console.warn("no listener onAddTask") };
     delayGetStatus = 5000;
 
@@ -6,12 +6,12 @@ export default class RepositoryOrponing {
         this.api = api;
     }
 
-    async orponingListAddress(list, name) {
+    async checkListInn(list, name) {
         let idTask;
         try {
-            if (!list || list.length < 1) return { data: [], error: "Список адресов пуст" };
+            if (!list || list.length < 1) return { data: [], error: "Список ИНН пуст" };
 
-            idTask = await this.api.apiOrponingListAddress(list);
+            idTask = await this.api.apiCheckListInn(list);
             this.onAddTask({ status: "START", name: name, taskId: idTask, countRecord: list.length, dateStatus: new Date(), message: "" });
 
             while (true) {

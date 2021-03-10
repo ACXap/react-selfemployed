@@ -2,7 +2,7 @@ import React from "react";
 import { Spinner } from "react-bootstrap";
 import PropTypes from "prop-types";
 
-export default class ProcessingOrponing extends React.Component {
+export default class ProcessingCheck extends React.Component {
     render() {
         return (
             <div className="text-center">

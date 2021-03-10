@@ -1,11 +1,11 @@
-import ServiceOrponing from "./ServiceOrponing";
+import ServiceCheckInn from "./ServiceCheckInn";
 import { readFileAnyEncoding } from "./WorkFiles/ReadPlainText";
 
-export default class ServiceOrponingFile extends ServiceOrponing {
+export default class ServiceCheckInnFile extends ServiceCheckInn {
     _files;
     _name = "file.csv";
 
-    async initListAddress(files) {
+    async initListInn(files) {
         const file = files[0];
         this._files = files;
         this._name = files[0].name;

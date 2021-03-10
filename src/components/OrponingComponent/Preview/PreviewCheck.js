@@ -1,7 +1,7 @@
 import React from "react";
 import PreviewItem from "./PreviewItem";
 
-export default class PreviewOrponing extends React.PureComponent {
+export default class PreviewCheck extends React.PureComponent {
     render() {
         const listP = this.props.list.map(el => <PreviewItem key={el.Id} item={el} />);
 
@@ -11,7 +11,7 @@ export default class PreviewOrponing extends React.PureComponent {
                 <div className="container">
                     <div className="row border">
                         <div className="col-2 border-end">Идентификатор</div>
-                        <div className="col-10">Адрес</div>
+                        <div className="col-10">ИНН</div>
                     </div>
                     {listP}
                 </div>

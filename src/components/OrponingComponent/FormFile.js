@@ -1,9 +1,9 @@
 import React from "react";
-import { serviceOrponingFile } from "../../init";
+import { serviceCheckFile } from "../../init";
 
-import ProcessingOrponing from "../ProcessingOrponing";
+import ProcessingCheck from "../ProcessingCheck";
 import FileResult from "./FileResult";
-import PreviewOrponing from "./Preview/PreviewOrponing";
+import PreviewCheck from "./Preview/PreviewCheck";
 
 export default class FormFile extends React.Component {
     constructor(props) {
@@ -11,14 +11,14 @@ export default class FormFile extends React.Component {
 
         this.state = {
             processing: false,
-            countRow: serviceOrponingFile.getCountRow() ?? 0,
-            previewList: serviceOrponingFile.getPreviewList() ?? [],
-            resultFile: serviceOrponingFile.getResult() ?? "",
-            files: serviceOrponingFile.getFiles() ?? null
+            countRow: serviceCheckFile.getCountRow() ?? 0,
+            previewList: serviceCheckFile.getPreviewList() ?? [],
+            resultFile: serviceCheckFile.getResult() ?? "",
+            files: serviceCheckFile.getFiles() ?? null
         }
         this.notifyError = props.notifyError;
-        this.getResult = () => serviceOrponingFile.orponing();
-        this.initListAddress = (files) => serviceOrponingFile.initListAddress(files);
+        this.getResult = () => serviceCheckFile.orponing();
+        this.initListInn = (files) => serviceCheckFile.initList(files);
 
         this.inputFile = React.createRef();
     }
@@ -27,12 +27,12 @@ export default class FormFile extends React.Component {
         this.inputFile.current.files = this.state.files;
     }
 
-    orponing = async () => {
+    checking = async () => {
         if (this.state.countRow === 0 || this.state.processing) return;
 
         this.setState({ processing: true });
         const result = await this.getResult();
-        if (result.error) this.notifyError(result.error, "Ошибка орпонизации адресов");
+        if (result.error) this.notifyError(result.error, "Ошибка проверки ИНН");
         this.setState({ resultFile: result.data, previewList: result.previewList, countRow: result.countRow, processing: false });
     }
 
@@ -40,7 +40,7 @@ export default class FormFile extends React.Component {
         if (this.state.processing || !files || files.length < 1) return;
 
         try {
-            const result = await this.initListAddress(files);
+            const result = await this.initListInn(files);
 
             if (result.error) this.notifyError(result.error, "Ошибка обработки полученных данных");
             this.setState({ countRow: result.count, previewList: result.previewList, resultFile: "" });
@@ -84,13 +84,13 @@ export default class FormFile extends React.Component {
                         onDragOver={this.ondragover}
                         onChange={this.onChange} />
                     <button className="btn btn-primary" disabled={this.state.processing} type="button"
-                        onClick={this.orponing}>Орпонизируй меня полностью</button>
+                        onClick={this.checking}>Проверь меня полностью</button>
                 </div>
                 <div className="px-2">Всего записей: {this.state.countRow}</div>
 
-                { this.state.processing && <ProcessingOrponing message="Обработка запроса..." />}
+                { this.state.processing && <ProcessingCheck message="Обработка запроса..." />}
                 { this.state.resultFile && <FileResult result={this.state.resultFile} nameDownload="file.csv" />}
-                { this.state.previewList.length > 0 && <PreviewOrponing list={this.state.previewList} />}
+                { this.state.previewList.length > 0 && <PreviewCheck list={this.state.previewList} />}
             </div>
         );
     }

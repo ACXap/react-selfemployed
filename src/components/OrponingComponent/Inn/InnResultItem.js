@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class AddressResultItem extends React.PureComponent {
+export default class InnResultItem extends React.PureComponent {
     render() {
         return (
             <div className={this.props.className}>
