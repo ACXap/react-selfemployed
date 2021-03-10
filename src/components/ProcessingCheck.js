@@ -13,6 +13,6 @@ export default class ProcessingCheck extends React.Component {
     }
 }
 
-ProcessingOrponing.propTypes = {
+ProcessingCheck.propTypes = {
     message: PropTypes.string.isRequired
 }

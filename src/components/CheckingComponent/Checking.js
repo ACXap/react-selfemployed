@@ -32,10 +32,10 @@ export default class Checking extends React.Component {
                 <div className="container border border-primary mt-5">
                     <div className="tab-panel p-2">
                         <TabControl onChangeTab={this.changeTab} lastTab={lt} />
-                        <FormInn notifyError={this.notifyError} hidden={lt != "tab-check-inn"} />
-                        <FormFile notifyError={this.notifyError} hidden={lt != "tab-check-file"} />
-                        <FormClipboard notifyError={this.notifyError} hidden={lt != "tab-check-clipboard"} />
-                        <History notifyError={this.notifyError} hidden={lt != "tab-check-history"} />
+                        <FormInn notifyError={this.notifyError} hidden={lt !== "tab-check-inn"} />
+                        <FormFile notifyError={this.notifyError} hidden={lt !== "tab-check-file"} />
+                        <FormClipboard notifyError={this.notifyError} hidden={lt !== "tab-check-clipboard"} />
+                        <History notifyError={this.notifyError} hidden={lt !== "tab-check-history"} />
                     </div>
                 </div>
             </div>

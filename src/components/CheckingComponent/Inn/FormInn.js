@@ -1,5 +1,5 @@
 import React from "react";
-import { ServiceCheckSingleInn } from "../../../init";
+import { serviceCheckSingleInn } from "../../../init";
 
 import InnResult from "./InnResult";
 import ProcessingCheck from "../../ProcessingCheck";
@@ -8,13 +8,13 @@ export default class FormAddress extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultInn: serviceCheckInn.getLastResult() ?? "",
-            requestInn: serviceCheckInn.getLastInn() ?? "",
+            resultInn: serviceCheckSingleInn.getLastResult() ?? "",
+            requestInn: serviceCheckSingleInn.getLastInn() ?? "",
             processing: false
         }
 
         this.notifyError = props.notifyError;
-        this.getResult = (adr) => serviceCheckInn.check(adr);
+        this.getResult = (adr) => serviceCheckSingleInn.check(adr);
         this.inputInn = React.createRef();
     }
 

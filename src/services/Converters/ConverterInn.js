@@ -23,7 +23,7 @@ const convertStringToInn = (data) => {
 const convertInnInfoToString = (innInfo) => {
     const data = ["id;inn;checkdate;status;error"];
     innInfo.forEach(el => {
-        data.push(`${el.Id};${el.inn};${el.checkdate};${el.status ?? ""};${resp.Error ?? ""}`);
+        data.push(`${el.Id};${el.inn};${el.checkdate};${el.status ?? ""};${el.error ?? ""}`);
     });
 
     return data;

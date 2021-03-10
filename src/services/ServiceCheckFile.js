@@ -1,7 +1,7 @@
 import ServiceCheckInn from "./ServiceCheckInn";
 import { readFileAnyEncoding } from "./WorkFiles/ReadPlainText";
 
-export default class ServiceCheckInnFile extends ServiceCheckInn {
+export default class ServiceCheckFile extends ServiceCheckInn {
     _files;
     _name = "file.csv";
 
