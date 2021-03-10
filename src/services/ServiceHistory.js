@@ -11,7 +11,7 @@ export default class ServiceHistory {
     }
 
     addTask(task) {
-        const list = this.getHistory().filter(h => h.taskId != task.taskId);
+        const list = this.getHistory().filter(h => h.taskId !== task.taskId);
         task.id = list.length + 1;
         task.date = new Date(task.dateStatus).toLocaleString();
         list.push(task);
@@ -51,7 +51,7 @@ export default class ServiceHistory {
     }
 
     removeTask(taskId) {
-        const newList = this.getHistory().filter(t => t.taskId != taskId);
+        const newList = this.getHistory().filter(t => t.taskId !== taskId);
         this.setHistory(newList);
     }
 

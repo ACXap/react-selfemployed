@@ -16,8 +16,8 @@ export default class FormClipboard extends React.Component {
             resultFile: serviceCheckClipboard.getResult() ?? ""
         }
         this.notifyError = props.notifyError;
-        this.getResult = () => serviceCheckClipboard.orponing();
-        this.initListInn = (data) => serviceCheckClipboard.initListAddress(data);
+        this.getResult = () => serviceCheckClipboard.check();
+        this.initListInn = (data) => serviceCheckClipboard.initListInn(data);
     }
 
     checking = async () => {
