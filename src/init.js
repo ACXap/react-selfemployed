@@ -11,7 +11,7 @@ const BASE_URL = "api/1.0/";
 
 const api = new Api(BASE_URL);
 const repositoryCheck = new RepositoryCheck(api);
-const serviceCheckSingleInn = new ServiceCheckSingleInn(api);
+const serviceCheckSingleInn = new ServiceCheckSingleInn(repositoryCheck);
 const serviceCheckClipboard = new ServiceCheckClipboard(repositoryCheck);
 const serviceCheckFile = new ServiceCheckFile(repositoryCheck);
 const serviceHistory = new ServiceHistory(repositoryCheck);

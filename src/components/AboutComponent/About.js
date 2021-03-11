@@ -18,31 +18,25 @@ export default class About extends React.PureComponent {
                     Для добавления файла следует воспользоваться соответствующей вкладкой. Файл можно выбрать при помощи стандартного диалога выбора,
                 а так же просто перетащить его на форму.<br />Поддерживаемый формат: txt, csv.
                 Возможная кодировка UTF-8 или windows-1251 (определяется автоматически)<br />
-                Разделитель для столбцов: ";"<br />
-                Файл может содержать (заголовки не нужны): "Идентификатор ИНН ; ИНН" или только "ИНН"<br /></p>
+                Файл может содержать (заголовки не нужны): "ИНН" <br /></p>
                     <table className="table table-bordered table-sm text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Идентификатор и ИНН</th>
                                 <th scope="col">Только ИНН</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1 ; ИНН</td>
                                 <td>ИНН</td>
                             </tr>
                             <tr>
-                                <td>2 ; ИНН</td>
                                 <td>ИНН</td>
                             </tr>
                             <tr>
-                                <td>3 ; ИНН</td>
                                 <td>ИНН</td>
                             </tr>
                         </tbody>
                     </table>
-                    <p className="lead"> <b>Идентификатор должен быть целочисленным числом, <i>уникальным</i> для каждого ИНН.</b></p>
                 </AboutSimpleText>
 
                 <AboutSimpleText header="Проверка ИНН по буферу обмена">
@@ -61,7 +55,7 @@ export default class About extends React.PureComponent {
 
                     <div className="form-floating mx-5">
                         <textarea className="form-control p-1" style={{ height: "110px", width: "800px" }} defaultValue={`[
-        { "Id":"1","Inn":"123123123123" }
+        "123123123123"
 ]`} /></div>
 
                     <h5>Орпонизация списка ИНН - это POST запрос на адрес /api/1.0/check-inn</h5>
@@ -70,8 +64,7 @@ export default class About extends React.PureComponent {
 
                     <div className="form-floating mx-5">
                         <textarea className="form-control p-1" style={{ height: "110px", width: "800px" }} defaultValue={`[
-        { "Id":"1","Inn":"123123123123" },
-        { "Id":"2","Inn":"324234234234" };
+        "123123123123", "324234234234"
 ]`} /></div>
 
                     <h5>Получить статус выполняемой задачи - это GET запрос на адрес /api/1.0/check-inn/status?id=&#123;уникальный GUID
@@ -89,7 +82,6 @@ export default class About extends React.PureComponent {
             ранее&#125; </h5>
                     <div className="form-floating mx-5">
                         <textarea className="form-control p-1" style={{ height: "470px", width: "800px" }} defaultValue={`[{
-        "id": "1",
         "inn": "123321123",
         "checkDate":"2021-02-07T07:44:38.768+00:00"
         "status":null,

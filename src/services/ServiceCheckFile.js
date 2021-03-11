@@ -17,7 +17,7 @@ export default class ServiceCheckFile extends ServiceCheckInn {
             return this._initList(result.data);
         } catch (e) {
             this._restartState();
-            return { count: this._listAddress.length, error: e.message, previewList: this._previewList };
+            return { count: this._listInn.length, error: e.message, previewList: this._previewList };
         }
     }
 

@@ -4,7 +4,7 @@ import { serviceCheckSingleInn } from "../../../init";
 import InnResult from "./InnResult";
 import ProcessingCheck from "../../ProcessingCheck";
 
-export default class FormAddress extends React.Component {
+export default class FormInn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

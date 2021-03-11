@@ -2,32 +2,17 @@ export default class ApiNegative {
     constructor(url) {
         this.BASE_URL = url;
     }
-    async apiClearArchive(password) {
-        throw new Error("apiClearArchive");
+
+    delay(delay) {
+        return new Promise(resolve => setTimeout(resolve, delay));
     }
 
-    async apiGetAllLogs() {
-        throw new Error("apiGetAllLogs");
+    async apiCheckSingleInn(inn) {
+        throw new Error("apiCheckSingleInn");
     }
 
-    async apiGetListServices() {
-        throw new Error("apiGetListServices");
-    }
-
-    async apiStartService(id) {
-        throw new Error("apiStartService");
-    }
-
-    async apiGetStatusService(id) {
-        throw new Error("apiGetStatusService");
-    }
-
-    async apiOrponingAddress(address) {
-        throw new Error("apiOrponingAddress");
-    }
-
-    async apiOrponingListAddress(listAddress) {
-        throw new Error("apiOrponingListAddress");
+    async apiCheckListInn(listInn) {
+        throw new Error("apiCheckListInn");
     }
 
     async apiGetStatusTask(id) {
@@ -36,13 +21,5 @@ export default class ApiNegative {
 
     async apiGetResultTask(id) {
         throw new Error("apiGetResultTask");
-    }
-
-    async apiGetLog() {
-        throw new Error("apiGetLog");
-    }
-
-    async apiGetLogFile(file) {
-        throw new Error("apiGetLogFile");
     }
 }
