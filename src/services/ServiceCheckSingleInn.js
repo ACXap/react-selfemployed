@@ -2,6 +2,7 @@ export default class ServiceCheckSingleInn {
     _repository = null;
     _lastInn = "";
     _lastResultInn = null;
+    _name = "Одиночный ИНН";
 
     constructor(repository) {
         this._repository = repository;
@@ -12,8 +13,8 @@ export default class ServiceCheckSingleInn {
 
         this._lastInn = inn;
         try {
-            this._lastResultInn = await this._repository.checkListInn([this._lastInn], this._name);
-
+            const result = await this._repository.checkListInn([this._lastInn], this._name);
+            this._lastResultInn = result.data[0];
             return { result: this.getLastResult(), error: "" };
         } catch (e) {
             this._lastResultInn = null;

@@ -1,9 +1,9 @@
 const validationPreviewListInn = (list) => {
 
     const result = list.map(a => {
-        a.isValidId = parseInt(a.Id) ? true : false;
-        a.isValidInn = a.Inn ? true : false;
-        return a;
+        const inn = { inn: a };
+        inn.isValidInn = a ? true : false;
+        return inn;
     });
 
     return result;

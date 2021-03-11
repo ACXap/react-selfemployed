@@ -26,7 +26,7 @@ export default class FormInn extends React.Component {
     }
 
     handleClickKey = (e) => {
-        if (e.keyCode != 13) return;
+        if (e.keyCode !== 13) return;
         e.preventDefault();
         this.checking();
     }

@@ -17,7 +17,7 @@ export default class HistoryItem extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.props.item.status != "START" && this.state.processing) this.setState({ processing: false });
+        if (this.props.item.status !== "START" && this.state.processing) this.setState({ processing: false });
     }
 
     update = () => {

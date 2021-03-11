@@ -19,15 +19,15 @@ export default class InnResult extends React.PureComponent {
                 <div className="row">
                     <div className="row">
                         <div className="col-sm-11 text-center"> <h3 className={cn}>{header}</h3></div>
-                        {error && <div className="col-sm-1">
+                        {error === "" && <div className="col-sm-1">
                             <FontAwesomeIcon color="green" icon={faCopy} size="2x" cursor="pointer" title="Скопировать результат" onClick={this.handleClickCopy} />
                         </div>}
                     </div>
 
                     <InnResultItem value={inn} title="Инн" className="col-sm-3 py-1" />
-                    <InnResultItem value={status} title="Статус" className="col-sm-3 py-1" />
-                    <InnResultItem value={checkdate} title="Дата проверки" className="col-sm-3 py-1" />
-                    <InnResultItem value={error} title="Ошибка" className="col-sm-3 py-1" />
+                    {error === "" && <InnResultItem value={status} title="Статус" className="col-sm-6 py-1" />}
+                    <InnResultItem value={new Date(checkdate).toLocaleString()} title="Дата проверки" className="col-sm-3 py-1" />
+                    {error !== "" && <InnResultItem value={error} title="Ошибка" className="col-sm-6 py-1" />}
                 </div>
             </div>
         );
