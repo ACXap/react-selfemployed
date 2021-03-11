@@ -3,11 +3,6 @@ export default class Api {
         this.BASE_URL = url;
     }
 
-    async apiCheckSingleInn(inn) {
-        const response = await fetch(this.BASE_URL + "check-inn?inn=" + inn);
-        return this._getJson(response);
-    }
-
     async apiCheckListInn(listInn) {
         const response = await fetch(this.BASE_URL + "check-inn", {
             method: 'POST',
@@ -18,12 +13,12 @@ export default class Api {
     }
 
     async apiGetStatusTask(id) {
-        const response = await fetch(this.BASE_URL + "inn/status?id=" + id);
+        const response = await fetch(this.BASE_URL + "check-inn/status?id=" + id);
         return this._getJson(response);
     }
 
     async apiGetResultTask(id) {
-        const response = await fetch(this.BASE_URL + "inn/result?id=" + id);
+        const response = await fetch(this.BASE_URL + "check-inn/result?id=" + id);
         return this._getJson(response);
     }
 

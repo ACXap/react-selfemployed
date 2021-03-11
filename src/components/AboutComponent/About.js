@@ -49,7 +49,7 @@ export default class About extends React.PureComponent {
                 </AboutSimpleText>
 
                 <AboutSimpleText header="API">
-                    <h5>Проверка одиночного ИНН - это GET запрос на адрес /api/1.0/check-inn?inn={`{требуемый ИНН}`}</h5>
+                    <h5>Орпонизация списка ИНН - это POST запрос на адрес /api/1.0/check-inn</h5>
                     <p className="lead">И в ответ будет уникальный GIUD задачи, пример: deb74f17-d553-45ed-b45c-24cd5c9c3406.<br />
             Тело запроса при этом:</p>
 
