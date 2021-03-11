@@ -17,7 +17,7 @@ export default class FormFile extends React.Component {
             files: serviceCheckFile.getFiles() ?? null
         }
         this.notifyError = props.notifyError;
-        this.getResult = () => serviceCheckFile.orponing();
+        this.getResult = () => serviceCheckFile.check();
         this.initListInn = (files) => serviceCheckFile.initListInn(files);
 
         this.inputFile = React.createRef();
