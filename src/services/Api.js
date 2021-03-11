@@ -23,7 +23,7 @@ export default class Api {
     }
 
     async _getJson(response) {
-        if (response.status == 200) {
+        if (response.status === 200) {
             return await response.json();
         }
 
@@ -33,7 +33,7 @@ export default class Api {
     }
 
     async _getText(response) {
-        if (response.status == 200) {
+        if (response.status === 200) {
             return await response.text();
         }
 

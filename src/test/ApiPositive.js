@@ -7,10 +7,6 @@ export default class ApiPositive {
         return new Promise(resolve => setTimeout(resolve, delay));
     }
 
-    async apiCheckSingleInn(inn) {
-        return (1000 - 0.5 + Math.random() * (10000 - 1000 + 1)).toString();
-    }
-
     async apiCheckListInn(listInn) {
         return (1000 - 0.5 + Math.random() * (10000 - 1000 + 1)).toString();
     }

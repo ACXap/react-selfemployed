@@ -7,10 +7,6 @@ export default class ApiNegative {
         return new Promise(resolve => setTimeout(resolve, delay));
     }
 
-    async apiCheckSingleInn(inn) {
-        throw new Error("apiCheckSingleInn");
-    }
-
     async apiCheckListInn(listInn) {
         throw new Error("apiCheckListInn");
     }
